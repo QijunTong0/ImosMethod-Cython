@@ -15,18 +15,6 @@ for i in tqdm(range(100)):
     arr.sum(axis=2, dtype=np.int16)
 print("naive:", (time.time() - time_st), "s")
 
-"""
-st_ravel = np.ravel(st)
-ed_ravel = np.ravel(ed)
-time_st = time.time()
-for i in tqdm(range(100)):
-    res = np.zeros(shape, dtype=np.in16)
-    np.add.at(res, (n_index, d_index, st_ravel), 1)
-    np.add.at(res, (n_index, d_index, ed_ravel), -1)
-    np.cumsum(res, out=res, axis=2)
-print("imos_numpy:", (time.time() - time_st), "s")
-"""
-
 time_st = time.time()
 for i in tqdm(range(1000)):
     imos_cython(shape, st, ed)
