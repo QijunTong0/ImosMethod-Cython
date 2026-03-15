@@ -9,12 +9,6 @@ n_index, d_index, _ = np.where(np.ones(shape=np.array([200, 30, 70]), dtype=np.i
 st = np.random.randint(0, shape[2] // 2, size=shape, dtype=np.int16)
 ed = st + np.random.randint(0, shape[2] // 2, size=shape, dtype=np.int16)
 
-arr = np.random.randint(0, 2, size=(200, 30, 70, 70), dtype=np.bool_)
-time_st = time.time()
-for i in tqdm(range(100)):
-    arr.sum(axis=2, dtype=np.int16)
-print("naive:", (time.time() - time_st), "s")
-
 time_st = time.time()
 for i in tqdm(range(1000)):
     imos_cython(shape, st, ed)
